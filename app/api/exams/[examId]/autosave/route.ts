@@ -16,7 +16,7 @@ export async function POST(req: Request, { params }: { params: { examId: string 
 
     let session = await ExamSession.findOne({ student: user.id, exam: params.examId });
 
-    // ✅ If session exists and is already submitted, block autosave
+    // If session exists and is already submitted, block autosave
     if (session && session.isSubmitted) {
       return NextResponse.json({
         success: false,

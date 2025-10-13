@@ -156,7 +156,7 @@ export const ResultsPage: React.FC<ResultsPageProps> = ({ result }) => {
                 />
               </div>
               <span className="text-lg font-semibold">
-                {result.percentage}%
+                {Math.round(result.percentage)}%
               </span>
             </div>
           </div>

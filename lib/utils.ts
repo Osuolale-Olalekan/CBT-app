@@ -376,7 +376,7 @@ currentY += 15;
   doc.setTextColor(0, 0, 0);
   doc.setFontSize(12);
   doc.text(`Score: ${data.score}/${data.totalQuestions}`, margin + 80, currentY + 7);
-  doc.text(`Percentage: ${data.percentage}%`, margin + 80, currentY + 14);
+  doc.text(`Percentage: ${Math.round(data.percentage)}%`, margin + 80, currentY + 14);
   currentY += 35;
 
   // ===== QR CODE =====

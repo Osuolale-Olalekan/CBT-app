@@ -220,7 +220,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                       : "bg-red-100 text-red-700"
                   }`}
                 >
-                  {result.percentage}%
+                  {Math.round(result.percentage)}%
                 </span>
               </div>
             ))}
