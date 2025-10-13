@@ -11,7 +11,6 @@
 
 // export default Page;
 
-
 // app/student/results/[resultId]/page.tsx
 import React from "react";
 import { cookies } from "next/headers";
@@ -19,7 +18,6 @@ import dbConnect from "@/lib/dbConnect";
 import Result from "@/models/Result";
 import { ResultsPage } from "@/components/ResultPage";
 import { jwtVerify } from "jose";
-
 
 const encodedSecret = new TextEncoder().encode(process.env.JWT_SECRET!);
 
@@ -41,7 +39,9 @@ export default async function Page({ params }: PageProps) {
 
   let userId: string;
   try {
-    const { payload } = await jwtVerify(token, encodedSecret, { algorithms: ["HS256"] });
+    const { payload } = await jwtVerify(token, encodedSecret, {
+      algorithms: ["HS256"],
+    });
     userId = payload.id as string;
   } catch (err) {
     return (
@@ -56,14 +56,13 @@ export default async function Page({ params }: PageProps) {
   const result = await Result.findById(params.resultId)
     .populate("userId", "name email department")
     .populate("examId", "title totalQuestions passingScore department")
-    .populate("answers.questionId", "text options correctOption subject options");
+    .populate(
+      "answers.questionId",
+      "text options correctOption subject options"
+    );
 
   if (!result) {
-    return (
-      <p className="text-center py-8 text-gray-500">
-        Result not found.
-      </p>
-    );
+    return <p className="text-center py-8 text-gray-500">Result not found.</p>;
   }
 
   if (result.userId._id.toString() !== userId) {
