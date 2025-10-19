@@ -1,15 +1,15 @@
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import Result from "@/models/Result";
 import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
-  req: Request,
-  { params }: { params: { examId: string } }
+  req: NextRequest, context: { params: Promise<{ examId: string }> }
 ) {
   try {
     await dbConnect();
+    const {examId} = await context.params
     const user = await getCurrentUser();
 
     if (!user) {
@@ -19,7 +19,7 @@ export async function GET(
       );
     }
 
-    const examId = params.examId;
+    // const examId = params.examId;
 
     if (user.role === "admin") {
       // ✅ Admin sees all results with ranking

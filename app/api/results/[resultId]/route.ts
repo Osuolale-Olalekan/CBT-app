@@ -1,14 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import Result from "@/models/Result";
 import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
-  req: Request,
-  { params }: { params: { resultId: string } }
+  req: NextRequest, context: { params: Promise<{ resultId: string }> }
 ) {
   try {
     await dbConnect();
+    const {resultId} = await context.params;
     const user = await getCurrentUser();
 
     if (!user) {
@@ -18,7 +18,7 @@ export async function GET(
       );
     }
 
-    const result = await Result.findById(params.resultId)
+    const result = await Result.findById(resultId)
       .populate("userId", "name email")
       .populate("examId", "title department totalQuestions");
 
