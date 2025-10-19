@@ -371,7 +371,7 @@ currentY += 15;
   const textColor = data.passed ? [0, 128, 0] : [255, 0, 0];
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
   doc.setFontSize(13);
-  doc.text(`Status: ${data.passed ? 'PASSED ✅' : 'FAILED ❌'}`, margin + 5, currentY + 7);
+  doc.text(`Status: ${data.passed ? 'PASSED' : 'FAILED'}`, margin + 5, currentY + 7);
 
   doc.setTextColor(0, 0, 0);
   doc.setFontSize(12);

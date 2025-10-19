@@ -18,13 +18,50 @@
 
 
 
+//WORKING CODE BUT FAILS WHILE DEPLOYING 19/20/2025
+// import { NextResponse } from "next/server";
+// import dbConnect from "@/lib/dbConnect";
+// import Exam from "@/models/Exam";
+// import { getCurrentUser } from "@/lib/auth";
 
-import { NextResponse } from "next/server";
+// export async function GET(req: Request, { params }: { params: { examId: string } }) {
+//   try {
+//     await dbConnect();
+
+//     const user = await getCurrentUser();
+//     if (!user) {
+//       return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
+//     }
+
+//     // Find exam and populate all questions
+//     const exam = await Exam.findById(params.examId)
+//       .populate({
+//         path: "questions",
+//         select: "text options subject department",
+//       })
+//       .lean();
+
+//     if (!exam) {
+//       return NextResponse.json({ success: false, message: "Exam not found" }, { status: 404 });
+//     }
+
+//     return NextResponse.json({ success: true, exam });
+//   } catch (error) {
+//     console.error("Fetch Exam Error:", error);
+//     return NextResponse.json({ success: false, message: "Server error" }, { status: 500 });
+//   }
+// }
+
+
+
+
+//SO I CHANGED IT TO THIS TO CHECK IF IT WILL WORK
+import { NextResponse, NextRequest } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import Exam from "@/models/Exam";
 import { getCurrentUser } from "@/lib/auth";
 
-export async function GET(req: Request, { params }: { params: { examId: string } }) {
+export async function GET(req: NextRequest, context: { params: Promise<{ examId: string }> }) {
   try {
     await dbConnect();
 
@@ -33,8 +70,11 @@ export async function GET(req: Request, { params }: { params: { examId: string }
       return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
     }
 
+    // ✅ Await the params Promise
+    const { examId } = await context.params;
+
     // Find exam and populate all questions
-    const exam = await Exam.findById(params.examId)
+    const exam = await Exam.findById(examId)
       .populate({
         path: "questions",
         select: "text options subject department",
@@ -51,6 +91,7 @@ export async function GET(req: Request, { params }: { params: { examId: string }
     return NextResponse.json({ success: false, message: "Server error" }, { status: 500 });
   }
 }
+
 
 
 
