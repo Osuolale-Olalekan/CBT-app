@@ -15,7 +15,10 @@
 import React from "react";
 import { cookies } from "next/headers";
 import dbConnect from "@/lib/dbConnect";
+import User from "@/models/User";
+import Exam from "@/models/Exam";
 import Result from "@/models/Result";
+import Question from "@/models/Question";
 import { ResultsPage } from "@/components/ResultPage";
 import { jwtVerify } from "jose";
 
