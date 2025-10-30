@@ -118,6 +118,7 @@ export const verifyUser = async () => {
 }
 
 export const getUserWithId = async (id: string) => {
+  await dbConnect();
 	const user = await User.findById(id).lean();
 
 	return user;
