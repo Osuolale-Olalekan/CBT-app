@@ -1,6 +1,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
+import Exam from "@/models/Exam";
 import Result from "@/models/Result";
 import { getCurrentUser } from "@/lib/auth";
 

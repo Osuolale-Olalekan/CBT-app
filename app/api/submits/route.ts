@@ -1,8 +1,8 @@
 // app/api/submits/route.ts
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
-import Result from "@/models/Result";
 import Exam from "@/models/Exam";
+import Result from "@/models/Result";
 import ExamSession from "@/models/ExamSession";
 import { IQuestion } from "@/models/Question";
 import { getCurrentUser } from "@/lib/auth";
