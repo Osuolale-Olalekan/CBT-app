@@ -1,5 +1,8 @@
 import "server-only";
 import mongoose from "mongoose";
+import User from "@/models/User";
+import Exam from "@/models/Exam";
+import Result from "@/models/Result";
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,6 +40,12 @@ const dbConnect = async () => {
 
   try {
     cache.conn = await cache.promise;
+
+    if (process.env.NODE_ENV !== "production") {
+      console.log("✅ Mongoose connected:", mongoose.connection.readyState);
+      console.log("📦 Registered models:", Object.keys(mongoose.models));
+    }
+
   } catch (error) {
     cache.promise = null;
     throw error;
