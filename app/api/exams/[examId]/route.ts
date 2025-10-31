@@ -59,6 +59,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import Exam from "@/models/Exam";
+import Question from "@/models/Question";
 import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(req: NextRequest, context: { params: Promise<{ examId: string }> }) {
