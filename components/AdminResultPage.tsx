@@ -104,7 +104,7 @@ export const AdminResultsPage: React.FC<AdminResultsPageProps> = ({ examId }) =>
                   <td className="px-6 py-4">
                     {res.score}/{res.examId.totalQuestions}
                   </td>
-                  <td className="px-6 py-4">{res.percentage}%</td>
+                  <td className="px-6 py-4">{Math.round(res.percentage)}%</td>
                   <td className="px-6 py-4">
                     {Math.floor(res.timeSpent / 60)}:
                     {(res.timeSpent % 60).toString().padStart(2, "0")}
