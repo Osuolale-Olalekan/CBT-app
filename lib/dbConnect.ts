@@ -1,8 +1,6 @@
 import "server-only";
 import mongoose from "mongoose";
-import User from "@/models/User";
-import Exam from "@/models/Exam";
-import Result from "@/models/Result";
+import "@/models/index"
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
