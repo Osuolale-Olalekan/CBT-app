@@ -3,6 +3,10 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { downloadResultPDF } from "@/lib/utils";
+import User from "@/models/User";
+import Exam from "@/models/Exam";
+import Question from "@/models/Question";
+import Result from "@/models/Result";
 import { Button } from "./Button"; // You already have this
 
 interface ResultData {
