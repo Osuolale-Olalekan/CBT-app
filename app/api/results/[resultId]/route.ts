@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import "@/models/index"
 import dbConnect from "@/lib/dbConnect";
 import Result from "@/models/Result";
-import Exam from "@/models/Exam";
-import User from "@/models/User";
+// import Exam from "@/models/Exam";
+// import User from "@/models/User";
 import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(

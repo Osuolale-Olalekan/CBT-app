@@ -14,8 +14,8 @@
 // app/student/results/[resultId]/page.tsx
 import React from "react";
 import { cookies } from "next/headers";
-import dbConnect from "@/lib/dbConnect";
 import "@/models/index";
+import dbConnect from "@/lib/dbConnect";
 import Result from "@/models/Result";
 import { ResultsPage } from "@/components/ResultPage";
 import { jwtVerify } from "jose";
