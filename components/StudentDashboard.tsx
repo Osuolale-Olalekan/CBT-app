@@ -41,6 +41,15 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
   const [exams, setExams] = useState<Exam[]>([]);
   const [results, setResults] = useState<UserResult[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeExam, setActiveExam] = useState<Exam | null>(null);
+
+  const openInstructionModal = (exam: Exam) => {
+    setActiveExam(exam);
+  };
+
+  const closeModal = () => {
+    setActiveExam(null);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -179,11 +188,55 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                       </Button>
                     ) : (
                       <Button
-                        onClick={() => handleStartExam(exam._id)}
+                        onClick={() => openInstructionModal(exam)}
                         className="bg-blue-600 hover:bg-blue-700 text-white rounded-md"
                       >
                         Start Exam
                       </Button>
+                    )}
+
+                    {activeExam && (
+                      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                        <div className="bg-white w-full max-w-lg rounded-xl shadow-lg p-6">
+                          <h2 className="text-xl font-bold text-gray-800 mb-3">
+                            Exam Instructions
+                          </h2>
+
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                            Please read the following instructions carefully
+                            before starting the exam:
+                            <br />
+                            <br />
+                            • You cannot pause or restart the exam once started.
+                            <br />
+                            • Each question must be answered before you move to
+                            the next one.
+                            <br />
+                            • Your time begins the moment you click <b>Start Exam.</b>
+                            <br />
+                            • Closing the browser may auto-submit your answers.
+                            <br />
+                            • Do not refresh the page during the exam.
+                            <br />
+                          </p>
+
+                          <div className="flex justify-end gap-3 mt-6">
+                            <Button variant="outline" onClick={closeModal}>
+                              Cancel
+                            </Button>
+
+                            <Button
+                              className="bg-blue-600 text-white"
+                              onClick={() => {
+                                closeModal();
+                                router.push(`/examInterface/${activeExam._id}`);
+                              }}
+                            >
+                              Start Exam
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 </div>
