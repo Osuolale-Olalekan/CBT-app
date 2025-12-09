@@ -6,6 +6,7 @@ import dbConnect from "@/lib/dbConnect";
 import Result from "@/models/Result";
 import { getCurrentUser } from "@/lib/auth";
 
+
 export async function GET(
   req: NextRequest, context: { params: Promise<{ examId: string }> }
 ) {

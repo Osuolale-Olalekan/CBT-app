@@ -50,6 +50,7 @@
 // app/api/results/route.ts
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
+import "@/models/index"
 import Result from "@/models/Result";
 import { getCurrentUser } from "@/lib/auth";
 
