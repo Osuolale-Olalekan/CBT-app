@@ -15,7 +15,7 @@
     "jspdf-autotable": "^5.0.2",
     "lucide-react": "^0.544.0",
     "mongoose": "^8.18.1",
-    "next": "^16.0.8",
+    "next": "^15.5.5",
     "next-auth": "^4.24.11",
     "papaparse": "^5.5.3",
     "qrcode": "^1.5.4",
@@ -33,7 +33,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "^15.5.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
