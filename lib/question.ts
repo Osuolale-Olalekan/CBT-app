@@ -21,7 +21,7 @@ export interface CreateQuestionData {
   text: string;
   options: string[];
   correctOption: number;
-  department: 'Science' | 'Art' | 'Commercial' | 'General';
+  department: 'JSS 1' | 'JSS 2' | 'JSS 3' | 'General'; //class mode instead of department
   subject: string;
   difficulty?: 'Easy' | 'Medium' | 'Hard';
   createdBy: string;
@@ -31,7 +31,7 @@ export interface UpdateQuestionData {
   text?: string;
   options?: string[];
   correctOption?: number;
-  department?: 'Science' | 'Art' | 'Commercial' | 'General';
+  department?: 'JSS 1' | 'JSS 2' | 'JSS 3' | 'General';
   subject?: string;
   difficulty?: 'Easy' | 'Medium' | 'Hard';
 }

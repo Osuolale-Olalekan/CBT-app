@@ -7,7 +7,7 @@ export interface IQuestion extends Document {
   text: string;
   options: string[] | string;
   correctOption: number;
-  department: 'Science' | 'Art' | 'Commercial' | 'General';
+  department: 'JSS 1' | 'JSS 2' | 'JSS 3' | 'General'; //might revert to department mode if class mode fail
   subject: string;
   difficulty: 'Easy' | 'Medium' | 'Hard';
   createdBy: mongoose.Types.ObjectId;
@@ -33,7 +33,7 @@ const QuestionSchema = new Schema<IQuestion>({
   },
   department: {
     type: String,
-    enum: ['Science', 'Art', 'Commercial', 'General'],
+    enum: ['JSS 1', 'JSS 2', 'JSS 3', 'General'],
     required: true
   },
   subject: {

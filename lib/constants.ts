@@ -1,5 +1,5 @@
 // lib/utils/constants.ts
-export const DEPARTMENTS = ['Science', 'Art', 'Commercial'] as const;
+export const DEPARTMENTS = ['JSS 1', 'JSS 2', 'JSS 3'] as const;
 export const SUBJECTS = {
   General: ['Mathematics', 'English Language'],
   Science: ['Physics', 'Chemistry', 'Biology', 'Further Mathematics'],

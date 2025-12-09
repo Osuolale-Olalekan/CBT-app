@@ -6,7 +6,7 @@ export interface IExam extends Document {
   title: string;
   description?: string;
   duration: number; // in minutes
-  department: 'Science' | 'Art' | 'Commercial';
+  department: 'JSS 1' | 'JSS 2' | 'JSS 3'; //might revert to department mode if class mode fails
   questions: mongoose.Types.ObjectId[];
   totalQuestions: number;
   passingScore: number;
@@ -32,7 +32,7 @@ const ExamSchema = new Schema<IExam>({
   },
   department: {
     type: String,
-    enum: ['Science', 'Art', 'Commercial'],
+    enum: ['JSS 1', 'JSS 2', 'JSS 3'], //might revert to department mode if class mode fails
     required: true
   },
   questions: [{

@@ -14,7 +14,7 @@ interface Question {
   difficulty?: string;
 }
 
-const departments = ["Science", "Art", "Commercial", "General"] as const;
+const departments = ["JSS 1", "JSS 2", "JSS 3", "General"] as const; //might revert back to department mode
 const difficulties = ["Easy", "Medium", "Hard"] as const;
 
 const AdminQuestionsPage: React.FC = () => {
@@ -295,6 +295,7 @@ const AdminQuestionsPage: React.FC = () => {
               <th className="p-3">Answer</th>
               <th className="p-3">Subject</th>
               <th className="p-3">Difficulty</th>
+              <th className="p-3"> Department</th>
               <th className="p-3">Actions</th>
             </tr>
           </thead>
@@ -317,6 +318,7 @@ const AdminQuestionsPage: React.FC = () => {
                 </td>
                 <td className="p-3">{q.subject || "-"}</td>
                 <td className="p-3">{q.difficulty || "-"}</td>
+                <td className="p-3">{q.department}</td>
                 <td className="p-3 flex gap-2">
                   <button
                     onClick={() => openEditModal(q)}
@@ -369,6 +371,7 @@ const AdminQuestionsPage: React.FC = () => {
             </div>
           </div>
         </div>
+        
       )}
     </div>
   );

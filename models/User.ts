@@ -8,7 +8,8 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: "student" | "admin";
-  department?: "Science" | "Art" | "Commercial";
+  // department?: "Science" | "Art" | "Commercial"; //might revert to this if class mode didn't work
+    department?: "JSS 1" | "JSS 2" | "JSS 3";
   createdAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
@@ -39,7 +40,7 @@ const UserSchema = new Schema<IUser>(
     },
     department: {
       type: String,
-      enum: ["Science", "Art", "Commercial"],
+      enum: ["JSS 1", "JSS 2", "JSS 3"], //might revert to department mode but let's use class mode for now
       required: function (this: IUser) {
         return this.role === "student";
       },

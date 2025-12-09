@@ -8,12 +8,12 @@ export interface CreateUserData {
   email: string;
   password: string;
   role: "student" | "admin";
-  department?: "Science" | "Art" | "Commercial";
+  department?: "JSS 1" | "JSS 2" | "JSS 3";
 }
 
 export interface UpdateUserData {
   name?: string;
-  department?: "Science" | "Art" | "Commercial";
+  department?: "JSS 1" | "JSS 2" | "JSS 3";
 }
 
 export interface PublicUser {
@@ -21,7 +21,7 @@ export interface PublicUser {
   name: string;
   email: string;
   role: "student" | "admin";
-  department?: "Science" | "Art" | "Commercial";
+  department?: "JSS 1" | "JSS 2" | "JSS 3";
 }
 
 
