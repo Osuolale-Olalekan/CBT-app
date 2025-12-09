@@ -2,7 +2,7 @@
 import mongoose, { Document, Schema, Model } from "mongoose";
 import bcrypt from "bcrypt";
 
-export interface IUser extends Document {
+export interface IUser extends Document<string> {
   _id: string; // 👈 Explicitly typed as string
   name: string;
   email: string;
