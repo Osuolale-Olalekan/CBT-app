@@ -20,24 +20,24 @@ export const metadata: Metadata = {
     { rel: "icon", url: "/school_logos.png" },
     { rel: "shortcut icon", url: "/school_logos.png" },
     { rel: "apple-touch-icon", url: "/school_logos.png" }
-  ]
-  // openGraph: {
-  //   title: "God's Way CBT App",
-  //   description: "God's Way CBT App by OLA",
-  //   images: [
-  //     {
-  //       url: "/school_logos.png",
-  //       width: 1200,
-  //       height: 630
-  //     }
-  //   ]
-  // },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "God's Way CBT App",
-  //   description: "God's Way CBT App by OLA",
-  //   images: ["/school_logos.png"]
-  // }
+  ],
+  openGraph: {
+    title: "God's Way CBT App",
+    description: "God's Way CBT App by OLA",
+    images: [
+      {
+        url: "/school_logos.png",
+        width: 1200,
+        height: 630
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "God's Way CBT App",
+    description: "God's Way CBT App by OLA",
+    images: ["/school_logos.png"]
+  }
 };
 
 
