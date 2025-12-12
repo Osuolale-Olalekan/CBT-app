@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   title: "God's Way CBT App",
   description: "God's Way Application",
   icons: [
-    { rel: "icon", url: "/school_logo.png" },
-    { rel: "shortcut icon", url: "/school_logo.png" },
-    { rel: "apple-touch-icon", url: "/school_logo.png" }
+    { rel: "icon", url: "/school_logos.png" },
+    { rel: "shortcut icon", url: "/school_logos.png" },
+    { rel: "apple-touch-icon", url: "/school_logos.png" }
   ],
   openGraph: {
     title: "God's Way CBT App",
